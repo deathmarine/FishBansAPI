@@ -40,7 +40,7 @@ public class FishBans {
 		Set<BanService> set = new HashSet<BanService>();
 		URL url;
 		try {
-			url = new URL("http://www.fishbans.com/api/bans/"+playerName+"/force/");
+			url = new URL("http://www.fishbans.com/api/bans/"+playerName+"/");
 			String line;
 			StringBuilder builder = new StringBuilder();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -133,7 +133,7 @@ public class FishBans {
 	public static BanService getBans(String playerName,String servicename){
 		URL url;
 		try {
-			url = new URL("http://www.fishbans.com/api/bans/"+playerName+"/"+servicename+"/force/");
+			url = new URL("http://www.fishbans.com/api/bans/"+playerName+"/"+servicename+"/");
 			String line;
 			StringBuilder builder = new StringBuilder();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));

@@ -32,7 +32,7 @@ public class FishStats {
 	public static BanStats getAllStats(String playername){
 		URL url;
 		try {
-			url = new URL("http://www.fishbans.com/api/stats/"+playername+"/force/");
+			url = new URL("http://www.fishbans.com/api/stats/"+playername+"/");
 			String line;
 			StringBuilder builder = new StringBuilder();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -82,7 +82,7 @@ public class FishStats {
 	public static Integer getStats(String playername,String servicename){
 		URL url;
 		try {
-			url = new URL("http://www.fishbans.com/api/stats/"+playername+"/"+servicename+"/force/");
+			url = new URL("http://www.fishbans.com/api/stats/"+playername+"/"+servicename+"/");
 			String line;
 			StringBuilder builder = new StringBuilder();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
