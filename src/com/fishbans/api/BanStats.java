@@ -1,12 +1,12 @@
 package com.fishbans.api;
 
-public class Stats {
+public class BanStats {
 	private Integer MCBANS = 0;
 	private Integer MCBOUNCER = 0;
 	private Integer MCBLOCKIT = 0;
 	private Integer MINEBANS = 0;
 	private Integer BCBANS = 0;
-	public Stats(long mcbansAmt,long mcbouncerAmt,long mcblockitAmt,long minebansAmt,long bcbansrAmt){
+	public BanStats(long mcbansAmt,long mcbouncerAmt,long mcblockitAmt,long minebansAmt,long bcbansrAmt){
 		setMCBANS((int) mcbansAmt);
 		setMCBOUNCER((int) mcbouncerAmt);
 		setMCBLOCKIT((int) mcblockitAmt);

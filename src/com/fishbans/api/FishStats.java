@@ -22,7 +22,7 @@ public class FishStats {
 	 * @param player
 	 * @return Stats
 	 */
-	public static Stats getAllStats(Player player){
+	public static BanStats getAllStats(Player player){
 		return getAllStats(player.getName());
 	}
 	/**
@@ -30,7 +30,7 @@ public class FishStats {
 	 * @param playername
 	 * @return Stats
 	 */
-	public static Stats getAllStats(String playername){
+	public static BanStats getAllStats(String playername){
 		URL url;
 		try {
 			url = new URL("http://www.fishbans.com/api/stats/"+playername+"/force/");
@@ -59,7 +59,7 @@ public class FishStats {
 			if(service.get(MINEBANS) != null) minebansAmt = (Long) service.get(MINEBANS);
 			long bcbansrAmt = 0;
 			if(service.get(BCBANS) != null) bcbansrAmt = (Long) service.get(BCBANS);
-			return new Stats(mcbansAmt,mcbouncerAmt,mcblockitAmt,minebansAmt,bcbansrAmt);
+			return new BanStats(mcbansAmt,mcbouncerAmt,mcblockitAmt,minebansAmt,bcbansrAmt);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -67,7 +67,7 @@ public class FishStats {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return new Stats(0,0,0,0,0);
+		return new BanStats(0,0,0,0,0);
 	}
 	/**
 	 * Gets Stats for a player from named Services.
