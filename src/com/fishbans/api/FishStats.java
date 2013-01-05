@@ -16,7 +16,6 @@ public class FishStats {
 	public static String MCBOUNCER = "mcbouncer";
 	public static String MCBLOCKIT = "mcblockit";
 	public static String MINEBANS = "minebans";
-	public static String BCBANS = "bcbans";
 	/**
 	 * Gets Stats for a player from all Services.
 	 * @param player
@@ -57,9 +56,7 @@ public class FishStats {
 			if(service.get(MCBLOCKIT) != null) mcblockitAmt = (Long) service.get(MCBLOCKIT);
 			long minebansAmt = 0;
 			if(service.get(MINEBANS) != null) minebansAmt = (Long) service.get(MINEBANS);
-			long bcbansrAmt = 0;
-			if(service.get(BCBANS) != null) bcbansrAmt = (Long) service.get(BCBANS);
-			return new BanStats(mcbansAmt,mcbouncerAmt,mcblockitAmt,minebansAmt,bcbansrAmt);
+			return new BanStats(mcbansAmt,mcbouncerAmt,mcblockitAmt,minebansAmt);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -67,7 +64,7 @@ public class FishStats {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return new BanStats(0,0,0,0,0);
+		return new BanStats(0,0,0,0);
 	}
 	/**
 	 * Gets Stats for a player from named Services.

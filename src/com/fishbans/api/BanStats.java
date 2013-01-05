@@ -5,13 +5,11 @@ public class BanStats {
 	private Integer MCBOUNCER = 0;
 	private Integer MCBLOCKIT = 0;
 	private Integer MINEBANS = 0;
-	private Integer BCBANS = 0;
-	public BanStats(long mcbansAmt,long mcbouncerAmt,long mcblockitAmt,long minebansAmt,long bcbansrAmt){
+	public BanStats(long mcbansAmt,long mcbouncerAmt,long mcblockitAmt,long minebansAmt){
 		setMCBANS((int) mcbansAmt);
 		setMCBOUNCER((int) mcbouncerAmt);
 		setMCBLOCKIT((int) mcblockitAmt);
 		setMINEBANS((int) minebansAmt);
-		setBCBANS((int) bcbansrAmt);
 	}
 	public Integer getMCBANS() {
 		return MCBANS;
@@ -36,11 +34,5 @@ public class BanStats {
 	}
 	private void setMINEBANS(Integer mINEBANS) {
 		MINEBANS = mINEBANS;
-	}
-	public Integer getBCBANS() {
-		return BCBANS;
-	}
-	private void setBCBANS(Integer bCBANS) {
-		BCBANS = bCBANS;
 	}
 }
