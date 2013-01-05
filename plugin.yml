@@ -1,0 +1,7 @@
+name: FishBansAPI
+main: com.fishbans.api.FishPlugin
+version: 0.1
+website: http://fishbans.com
+author: Deathmarine
+description: >
+             API for the FishBans website.
