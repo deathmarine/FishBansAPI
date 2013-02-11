@@ -23,6 +23,7 @@ public class FishBans {
 	public static String MCBANS = "mcbans";
 	public static String MCBOUNCER = "mcbouncer";
 	public static String MCBLOCKIT = "mcblockit";
+	public static String GLIZER = "glizer";
 	/**
 	 * Gets Bans for a player from all Services.
 	 * @param player
@@ -107,6 +108,23 @@ public class FishBans {
 				if(mcblockitInfo!=null)
 					toJavaMap(mcblockitInfo, map);
 				set.add(new BanService(MCBLOCKIT,map));
+			}
+			
+			//Glizer
+			JSONObject glizer = (JSONObject) service.get(GLIZER);
+			if(glizer == null){
+				return null;
+			}
+			long glizerAmt = 0;
+			if(glizer.get("bans") != null){
+				glizerAmt = (Long) glizer.get("bans");
+			}
+			if(glizerAmt > 0){
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				JSONObject glizerInfo = castToJSON(glizer.get("ban_info"));
+				if(glizerInfo != null) 
+					toJavaMap(glizerInfo, map);
+				set.add(new BanService(GLIZER,map));
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

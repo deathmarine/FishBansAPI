@@ -16,6 +16,7 @@ public class FishStats {
 	public static String MCBOUNCER = "mcbouncer";
 	public static String MCBLOCKIT = "mcblockit";
 	public static String MINEBANS = "minebans";
+	public static String GLIZER = "glizer";
 	/**
 	 * Gets Stats for a player from all Services.
 	 * @param player
@@ -56,7 +57,9 @@ public class FishStats {
 			if(service.get(MCBLOCKIT) != null) mcblockitAmt = (Long) service.get(MCBLOCKIT);
 			long minebansAmt = 0;
 			if(service.get(MINEBANS) != null) minebansAmt = (Long) service.get(MINEBANS);
-			return new BanStats(mcbansAmt,mcbouncerAmt,mcblockitAmt,minebansAmt);
+			long glizerAmt = 0;
+			if(service.get(GLIZER) != null) minebansAmt = (Long) service.get(GLIZER);
+			return new BanStats(mcbansAmt,mcbouncerAmt,mcblockitAmt,minebansAmt,glizerAmt);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -64,7 +67,7 @@ public class FishStats {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return new BanStats(0,0,0,0);
+		return new BanStats(0L,0L,0L,0L,0L);
 	}
 	/**
 	 * Gets Stats for a player from named Services.
@@ -79,7 +82,7 @@ public class FishStats {
 	 * @param playername
 	 * @return Integer
 	 */
-	public static Integer getStats(String playername,String servicename){
+	public static int getStats(String playername,String servicename){
 		URL url;
 		try {
 			url = new URL("http://www.fishbans.com/api/stats/"+playername+"/"+servicename+"/");
@@ -95,7 +98,7 @@ public class FishStats {
 			JSONObject jsonObject = (JSONObject) obj;
 			JSONObject bans = (JSONObject) jsonObject.get("stats");
 			if(bans == null){
-				return null;
+				return 0;
 			}
 			JSONObject service = (JSONObject) bans.get("service");
 			long s = 0;
@@ -108,7 +111,7 @@ public class FishStats {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return 0;
 		
 	}
 }

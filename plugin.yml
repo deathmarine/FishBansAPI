@@ -1,6 +1,6 @@
 name: FishBansAPI
 main: com.fishbans.api.FishPlugin
-version: 0.1
+version: 0.2
 website: http://fishbans.com
 author: Deathmarine
 description: >

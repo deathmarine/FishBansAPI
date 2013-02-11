@@ -21,7 +21,7 @@ public class Example extends JavaPlugin implements Listener{
 			this.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable(){
 				@Override
 				public void run() {
-					BanService service = FishBans.getBans(name, FishBans.MCBANS);
+					BanService service = FishBans.getBans(name, FishBans.GLIZER);
 					Player player = Bukkit.getPlayer(name);
 					if(player!=null)
 						for(String bans:service.getCombinedList())
